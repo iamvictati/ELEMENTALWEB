@@ -1,9 +1,11 @@
 import Star1 from "./../Svgs/Star1";
 import Star2 from "./../Svgs/Star2";
 import Star3 from "./../Svgs/Star3";
+import { StarsProps } from "./../types/components.types";
+import { FunctionComponent } from "react"
 
 
-const Stars = ({svgIndex, color, handleClick}) => {
+const Stars: FunctionComponent<StarsProps> = ({svgIndex, color, handleClick}) => {
 
 switch (svgIndex) {
     case 1: 

@@ -8,7 +8,7 @@ import { FunctionComponent } from "react";
 import { DolphinsProps } from "../types/components.types";
 import { SVG_COLOR_FILL } from "@/pages/utils/constants";
 
-const Dolphins: FunctionComponent<DolphinsProps> = ({ svgIndex, handleVideos,handleContact,colorIndex}) => {
+const Dolphins: FunctionComponent<DolphinsProps> = ({ svgIndex, handleVideos, handleContact, colorIndex}) => {
   switch (svgIndex) {
     case 1:
       return (

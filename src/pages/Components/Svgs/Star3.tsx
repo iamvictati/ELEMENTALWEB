@@ -27,3 +27,5 @@ const Star3 = ({ color, handleClick }) => {
 };
 
 export default Star3;
+
+

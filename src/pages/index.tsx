@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Stars from "./Components/Home/Stars";
+import Music from "./Components/Home/Music";
 import { Inter } from "next/font/google";
 import Dolphins from "./Components/Home/Dolphins";
 import Contact from "./Components/Home/Contact";
 import Languages from "./Components/Home/Languages"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { GRADIENT_SET, IMAGE_SET } from "./utils/constants";
+import { GRADIENT_SET, IMAGE_SET,} from "./utils/constants";
 
 
 export const getStaticProps = async ({ locale }: any) => ({
@@ -17,18 +18,18 @@ export const getStaticProps = async ({ locale }: any) => ({
 
 export default function Home() {
   // Cualquier elemento que este primero en los corchetes en el useState es lo mismo que lo que esta en tus parentesis de useState.
-  const [abreContacto, setAbreContacto] = useState(false);
-  const [abreMusica, setAbreMusica] = useState(false);
-  const [animate, setAnimate] = useState(false);
-  const [currentSet, setCurrentSet] = useState(0);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [abreContacto, setAbreContacto] = useState<boolean>(false);
+  const [abreMusica, setAbreMusica] = useState<boolean>(false);
+  const [animate, setAnimate] = useState<boolean>(false);
+  const [currentSet, setCurrentSet] = useState<number>(0);
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
 
-  const handleVideos = () => {
+  const handleVideos = (): void => {
     window.open(
       "https://www.youtube.com/watch?v=WdSu7FqKvsE&ab_channel=Sh%C3%A8ngL%C3%AC%E3%80%90%E5%8B%9D%E5%88%A9%E3%80%91"
     );
   };
-  const handleContact = () => {
+  const handleContact = (): void => {
     if (abreContacto) {
       setAnimate(false);
       setTimeout( () => {
@@ -42,7 +43,7 @@ export default function Home() {
     }
   };
 
-  const handleMusic = () => {
+  const handleMusic = (): void => {
     if (abreMusica) {
       setAnimate(false);
       setTimeout( () => {
@@ -56,9 +57,11 @@ export default function Home() {
     }
   };
 
+
+
   useEffect(() => {
 
-    const irProximaImagen = () => {
+    const irProximaImagen = (): void => {
       setCurrentIndex ((prevCurrentIndex) => {
           if (prevCurrentIndex >= 2) {
             return 0;
@@ -66,9 +69,9 @@ export default function Home() {
             return prevCurrentIndex + 1;
           }
       })
-    }
+    };
 
-    const irProximoSet = () => {
+    const irProximoSet = (): void => {
       setCurrentSet((prevCurrentSet) => {
         if (prevCurrentSet >= 4) {
           return 0
@@ -100,9 +103,24 @@ export default function Home() {
   // [❤] => crear la estrella para que sea responsiva/sensible como los delfines (mañana)
   // [x] => Cambiar los colores con la musica 
   // [x] => la responsividad/sensibilidad de la pagina en general.
-  // [x] => Arreglar la x de la pagina de contacto con las opciones de idioma. 
+  // [❤] => Arreglar la x de la pagina de contacto con las opciones de idioma. 
+  // [❤] => los tipos de typexcript 
   // [x] => botones de contacto a otras paginas 
-  // [x] => Mejorar el gradiente del background detras de la imagen. 
+  // [x] => Mejorar el gradiente del background detras de la imagen.
+  
+  /* Diseño
+    [x] => la posicion de la estrella + el texto de la estrella 
+    [x] => el efecto de las nyubes para las paginas de contacto y musica 
+    [x] => el gradiente de las paginas de contacto y musica 
+    [x] => la plantilla de la pagina de music + las canciones (HACER DIBUJO! IMPORTANTE!)
+    [x] => Crear dobujitos de iconos de media social 
+    [x] => el texto de los idiomas con el idioma correcto 
+    [x] => el efecto donde la cancion cambia con la nube gradiente
+    [x] => 
+
+    */
+
+
 
 
   return (
@@ -123,7 +141,8 @@ export default function Home() {
         src={`/Images/Layers/${IMAGE_SET[currentSet][currentIndex]}.png`}
         />
 
-        <Languages /> 
+        {!abreContacto && !abreMusica && <Languages />}
+
         <Stars 
         svgIndex={currentIndex} 
         color= {"#ffffff"}
@@ -136,9 +155,11 @@ export default function Home() {
           handleVideos={handleVideos}
           handleContact={handleContact}
         />
+        { abreMusica && (<Music animate= {animate} setAbreMusica={setAbreMusica} />)}
+      
         {
           // Si abreContacto es verdadero entonces el elemento se muestra despues de &&
-          abreContacto && <Contact setAbreContacto={setAbreContacto} />
+          abreContacto && <Contact setAbreContacto={setAbreContacto} animate={animate} />
         }
       </div>
     </div>

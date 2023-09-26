@@ -9,8 +9,11 @@ import {
   FaMailBulk,
 } from "react-icons/fa";
 import Link from "next/link";
+import { FunctionComponent } from "react";
+import { ContactProps } from "./../types/components.types"; 
+import { CONTACT_MUD_SET } from "./../utils/constants";
 
-const Contact = ({ setAbreContacto, animate }) => {
+const Contact: FunctionComponent<ContactProps>  = ({ setAbreContacto, animate }) => {
   const { t } = useTranslation();
 
   return (
@@ -31,6 +34,9 @@ const Contact = ({ setAbreContacto, animate }) => {
           <div className="flex w-fit h-fit items-center justify-center text-white font-russian text-5xl">
             {t("contact")}
           </div>
+
+      
+          
           <div className="relative w-full h-full flex flex-row items-center justify-between px-16">
             <div className="flex flex-col gap-3 items-center justify-center w-fit h-fit items-center justify-center">
               <Link
@@ -59,7 +65,7 @@ const Contact = ({ setAbreContacto, animate }) => {
               </Link>
             </div>
             <div className="relative text-white font-russian text-center items-center justify-center w-1/2 h-fit">
-              {t("about")}
+              {t("IF YOU WISH TO CONTACT ME, THAT IS, I, THE AUTHOR OF THESE CREATIONS; YOU MAY DO SO, RESPECTFULLY, BY SENDING ME, THAT IS, I, A KIND LETTER TO THE EMAIL BELOW.")}
             </div>
             <div className="flex flex-col gap-3 items-center justify-center w-fit h-fit items-center justify-center">
               <Link

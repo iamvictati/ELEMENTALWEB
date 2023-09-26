@@ -1,6 +1,8 @@
 import { AiOutlineClose } from "react-icons/ai";
 import { useTranslation } from "next-i18next";
-import {
+import { MusicProps } from "./../types/components.types";
+import {FunctionComponent } from "react";
+import { 
   FaTwitter,
   FaInstagramSquare,
   FaTiktok,
@@ -10,7 +12,9 @@ import {
 } from "react-icons/fa";
 import Link from "next/link";
 
-const Music = ({ setAbreMusica, animate }) => {
+
+
+const Music: FunctionComponent<MusicProps> = ({ setAbreMusica, animate }) => {
   const { t } = useTranslation();
 
   return (

@@ -54,12 +54,62 @@ g:hover {
 
 
 #contactoBg {
-  background: linear-gradient(
+  background: rgb(199,245,255);
+  background: -moz-linear-gradient(
+  90deg, rgba(199,245,255,0.7) 0%, 
+  rgba(121,121,225,0.7036064425770308) 12%,
+  rgba(0,0,0,0.85) 30%, rgba(0,0,0,0.95) 42%, 
+  rgba(0,0,0,0.95) 58%,
+  rgba(0,0,0,0.85) 70%, 
+  rgba(121,121,225,0.7008053221288515) 88%, 
+  rgba(199,245,255,0.7) 100%);
+  background: -webkit-linear-gradient(90deg, 
+  rgba(199,245,255,0.7) 0%,
+  rgba(121,121,225,0.7036064425770308) 12%, 
+  rgba(0,0,0,0.85) 30%, 
+  rgba(0,0,0,0.95) 42%, 
+  rgba(0,0,0,0.95) 58%, 
+  rgba(0,0,0,0.85) 70%, 
+  rgba(121,121,225,0.7008053221288515) 88%,
+  rgba(199,245,255,0.7) 100%);
+  background: linear-gradient(90deg, 
+  rgba(199,245,255,0.7) 0%, 
+  rgba(121,121,225,0.7036064425770308) 12%, 
+  rgba(0,0,0,0.85) 30%, 
+  rgba(0,0,0,0.95) 42%, 
+  rgba(0,0,0,0.95) 58%, 
+  rgba(0,0,0,0.85) 70%, 
+  rgba(121,121,225,0.7008053221288515) 88%, 
+  rgba(199,245,255,0.7) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c7f5ff",endColorstr="#c7f5ff",GradientType=1);
+}
+
+@keyframes cloudBlur {
+  0% {
+    opacity: 0;
+    filter: blur(200px);
+    transform: scale(0.1) translateY(100px);
+    border-radius: 50%;
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: scale(1) translateY(0);
+    border-radius: 0%;  
+  }
+}
+
+.cloudBlurEffect {
+  animation: cloudBlur 3s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  animation-fill-mode: forwards;
+  will-change: transform, filter, opacity, border-radius;
+}
+
+/* background: linear-gradient(
     90deg,
     rgba(211, 235, 240, 0.08530805687203791) 0%,
     rgba(121, 121, 225, 0.5023696682464456) 15%,
     rgba(0, 0, 0, 1) 52%,
     rgba(121, 121, 225, 0.5379146919431279) 87%,
     rgba(211, 235, 240, 0.05213270142180093) 100%
-  );
-}
+*/ 

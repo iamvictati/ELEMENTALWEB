@@ -21,3 +21,9 @@ export const SVG_COLOR_FILL = [
     ["Color 4 Layer 1", "Color 4 Layer 2", "Color 4 Layer 3"],
     ["Color 5 Layer 1", "Color 5 Layer 2", "Color 5 Layer 3"],
  ];
+
+ export const CONTACT_MUD_SET = [
+  "Contact L1",
+  "Contact L2",
+  "Contact L3",
+ ];
